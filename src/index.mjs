@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { can } from '@x12i/xentra-permissions';
+import { createAccountModel, createMembershipModel } from '@x12i/xentra-core';
+const now = '2026-01-01T00:00:00.000Z';
+const account = createAccountModel({ id: 'fixture-account', name: 'Fixture', slug: 'fixture', now });
+const role = { id: 'reader', accountId: account.id, key: 'reader', name: 'Reader', scope: 'account', permissionKeys: ['document.read'], createdAt: now, updatedAt: now };
+const membership = createMembershipModel({ id: 'member', accountId: account.id, userId: 'fixture-user', roleIds: [role.id], now });
+const request = { actor: { type: 'user', id: 'fixture-user' }, action: 'document.read', resource: { resourceType: 'document', resourceId: 'doc-1' }, context: { accountId: account.id } };
+const context = { account, memberships: [membership], roles: [role], accessRules: [], delegations: [], now };
+assert.equal(can(request, context).allowed, true);
+assert.equal(can({ ...request, action: 'document.write' }, context).allowed, false);
+console.log({ read: can(request, context), write: can({ ...request, action: 'document.write' }, context) });

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "package": "@x12i/xentra-permissions",
+  "packageVersion": "0.2.0",
+  "npmUrl": "https://www.npmjs.com/package/@x12i/xentra-permissions",
+  "usageRepository": "https://github.com/x12i-sdk/xentra-permissions",
+  "sourceRepository": "https://github.com/x12i/xentra",
+  "sourceCommit": "004372e6695509bf2e95d2e4e53d4534e81dd312",
+  "sourcePackageDirectory": "packages/permissions",
+  "example": {
+    "title": "Evaluate a scoped role grant and a missing permission",
+    "entrypoint": "src/index.mjs",
+    "command": "npm start",
+    "requiresCredentials": false,
+    "validation": "passed",
+    "validatedAt": "2026-10-24T14:37:32.941543+00:00",
+    "isolatedInstallation": true,
+    "sourceSha256": "00f3099f7e69e7a61663874f189a6ba32b5560c48b4789b50e062b3ce4d10072",
+    "manifestSha256": "04c5fbaee302013b8867da514ff7713a28c880e56ca59c5f3fd7363c540edcdb"
+  },
+  "validationFiles": {
+    "src/index.mjs": "00f3099f7e69e7a61663874f189a6ba32b5560c48b4789b50e062b3ce4d10072"
+  }
+}
